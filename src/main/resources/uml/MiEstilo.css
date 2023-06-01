@@ -54,12 +54,6 @@ Interface {
 	fontColor: #236122;
 }
 
-* [isAbstract=true] {
-	fillColor: #FFEBF1;
-	lineColor: #DB1A54;
-	fontColor: #DB1A54;
-}
-
 Package {
 	fillColor: #FBFCD7;
 	lineColor: #66521D;
@@ -96,17 +90,12 @@ Class Operation Parameter {
 	maskLabel: type name;
 }
 
-Operations[Label]{
-	fontColor: #66521D;
-	fontHeight: 12;
-}
-
-Operation > Label:direction {
+.oculto {
 	visible: false;
 }
 
-Operation > Label {
-	maskLabel: name type;
+Parameter > Label {
+	maskLabel: name;
 }
 
 

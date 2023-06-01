@@ -1,6 +1,6 @@
 # Tarea: Alquiler de vehículos (v2)
 ## Profesor: Andrés Rubio del Río
-## Alumno:
+## Alumno: Daniel Mora Faba
 
 A nuestro cliente le ha gustado bastante la aplicación desarrollada hasta ahora. Sin embargo, nos comenta que debemos realizar algunas mejoras a la anterior versión y nuevas funcionalidades que le gustaría que tuviese. Todo ello será abordado en este **tercer spring**.
 

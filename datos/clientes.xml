@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <clientes>
-    <cliente dni="11223344B" nombre="Bob Esponja" telefono="950112233"/>
-    <cliente dni="11111111H" nombre="Patricio Estrella" telefono="950111111"/>
+    <cliente dni="77702051R">
+        <nombre tipodato="String">Daniel Mora</nombre>
+        <telefono tipodato="String">601336891</telefono>
+    </cliente>
+    <cliente dni="14524656H">
+        <nombre tipodato="String">Juan Fernandez</nombre>
+        <telefono tipodato="String">642780456</telefono>
+    </cliente>
+    <cliente dni="70733211T">
+        <nombre tipodato="String">Pablo Capel</nombre>
+        <telefono tipodato="String">692108721</telefono>
+    </cliente>
 </clientes>

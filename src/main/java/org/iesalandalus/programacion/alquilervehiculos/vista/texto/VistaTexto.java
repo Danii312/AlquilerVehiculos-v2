@@ -1,12 +1,12 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.texto;
 
-import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.*;
 import org.iesalandalus.programacion.alquilervehiculos.vista.Vista;
 
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,8 +52,12 @@ public class VistaTexto extends Vista {
                             modificarCliente();
                             accion = null;
                         }
-                        case DEVOLVER_ALQUILER -> {
-                            devolverAlquiler();
+                        case DEVOLVER_ALQUILER_VEHICULO -> {
+                            devolverAlquilerVehiculo();
+                            accion = null;
+                        }
+                        case DEVOLVER_ALQUILER_CLIENTE -> {
+                            devolverAlquilerCliente();
                             accion = null;
                         }
                         case BORRAR_CLIENTE -> {
@@ -175,12 +179,34 @@ public class VistaTexto extends Vista {
         }
     }
 
+    protected void devolverAlquilerCliente() {
+        Consola.mostrarCabecera("Devolver alquiler por cliente");
+        Cliente cliente = Consola.leerClienteDni();
+        LocalDate fechaDevolucion = Consola.leerFechaDevolucion();
+        try {
+            controlador.devolver(cliente, fechaDevolucion);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    protected void devolverAlquilerVehiculo() {
+        Consola.mostrarCabecera("Devolver alquiler por vehiculo");
+        Vehiculo vehiculo = Consola.leerVehiculoMatricula();
+        LocalDate fechaDevolucion = Consola.leerFechaDevolucion();
+        try {
+            controlador.devolver(vehiculo, fechaDevolucion);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     protected void devolverAlquiler() {
         Consola.mostrarCabecera("Devolver alquiler");
         Alquiler alquiler = Consola.leerAlquiler();
         LocalDate fechaDevolucion = Consola.leerFechaDevolucion();
         try {
-            controlador.devolver(alquiler, fechaDevolucion);
+            controlador.devolver(alquiler.getCliente(), fechaDevolucion);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -265,6 +291,37 @@ public class VistaTexto extends Vista {
         while (iteratorAlquileres.hasNext()) {
             Alquiler alquiler = iteratorAlquileres.next();
             System.out.println(alquiler);
+        }
+    }
+
+    private EnumMap<tipoVehiculo, Integer> inicializarEstadisticas() {
+        EnumMap<tipoVehiculo, Integer> enumMapVehiculos = new EnumMap<>(tipoVehiculo.class);
+        enumMapVehiculos.put(tipoVehiculo.TURISMO, 0);
+        enumMapVehiculos.put(tipoVehiculo.FURGONETA, 0);
+        enumMapVehiculos.put(tipoVehiculo.AUTOBUS, 0);
+        return enumMapVehiculos;
+    }
+
+    public void mostrarEstadisticasMensualesTipoVehiculo() {
+        EnumMap<tipoVehiculo, Integer> enumMapVehiculos = inicializarEstadisticas();
+        Integer mes = Consola.leerMes("Inserta el número del mes");
+        List<Alquiler> alquileres = controlador.getAlquileres();
+        Integer estadisticasTurismo = enumMapVehiculos.get(tipoVehiculo.TURISMO);
+        Integer estadisticasFurgoneta = enumMapVehiculos.get(tipoVehiculo.FURGONETA);
+        Integer estadisticasAutobus = enumMapVehiculos.get(tipoVehiculo.AUTOBUS);
+        for (Alquiler alquiler : alquileres) {
+            if (alquiler.getFechaAlquiler().getMonthValue() == mes) {
+                Vehiculo vehiculo = alquiler.getVehiculo();
+                if (vehiculo instanceof Turismo) {
+                    estadisticasTurismo++;
+                }
+                if (vehiculo instanceof Furgoneta) {
+                    estadisticasFurgoneta++;
+                }
+                if (vehiculo instanceof Autobus) {
+                    estadisticasAutobus++;
+                }
+            }
         }
     }
 

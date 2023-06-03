@@ -9,7 +9,6 @@ public enum Accion {
             vista.terminar();
         }
     },
-
     INSERTAR_CLIENTE("Insertar cliente") {
         protected void ejecutar() {
             vista.insertarCliente();
@@ -45,9 +44,14 @@ public enum Accion {
             vista.modificarCliente();
         }
     },
-    DEVOLVER_ALQUILER("Devolver alquiler") {
+    DEVOLVER_ALQUILER_CLIENTE("Devolver alquiler de cliente") {
         protected void ejecutar() {
-            vista.devolverAlquiler();
+            vista.devolverAlquilerCliente();
+        }
+    },
+    DEVOLVER_ALQUILER_VEHICULO("Devolver alquiler de vehiculo") {
+        protected void ejecutar() {
+            vista.devolverAlquilerVehiculo();
         }
     },
     BORRAR_CLIENTE("Borrar cliente") {
@@ -89,6 +93,11 @@ public enum Accion {
         protected void ejecutar() {
             vista.listarAlquileresVehiculo();
         }
+    },
+    MOSTRAR_ESTADISTICAS_MENSUALES("Mostrar estadisticas mensuales") {
+        protected void ejecutar() {
+            vista.mostrarEstadisticasMensualesTipoVehiculo();
+        }
     };
 
     protected VistaTexto vista;
@@ -110,7 +119,6 @@ public enum Accion {
             throw new OperationNotSupportedException("No se ha encontrado el ordinal insertado.");
         }
     }
-
 
     protected void setVista(VistaTexto vistaTexto) {
         this.vista = vistaTexto;

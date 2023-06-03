@@ -62,10 +62,18 @@ public class Controlador {
         modeloCascada.modificar(cliente, nombre, telefono);
     }
 
-    public void devolver(Alquiler alquiler, LocalDate fechaDevolucion) {
+    public void devolver(Cliente cliente, LocalDate fechaDevolucion) {
         try {
-            modeloCascada.devolver(alquiler, fechaDevolucion);
-        } catch (NullPointerException | OperationNotSupportedException e) {
+            modeloCascada.devolver(cliente, fechaDevolucion);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void devolver(Vehiculo vehiculo, LocalDate fechaDevolucion) {
+        try {
+            modeloCascada.devolver(vehiculo, fechaDevolucion);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

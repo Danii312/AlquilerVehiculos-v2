@@ -11,7 +11,7 @@ public class MainApp {
 
 	public static void main(String[] args) throws Exception {
 		Vista vistaTexto = new VistaTexto();
-		Modelo modeloCascada = new ModeloCascada(FactoriaFuenteDatos.MEMORIA.crear());
+		Modelo modeloCascada = new ModeloCascada(FactoriaFuenteDatos.FICHEROS);
 		Controlador controlador = new Controlador(modeloCascada, vistaTexto);
 		controlador.comenzar();
 	}

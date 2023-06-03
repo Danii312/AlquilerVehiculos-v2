@@ -18,9 +18,9 @@ public interface IAlquileres {
 
     int getCantidad();
 
-    void insertar(Alquiler alquiler) throws OperationNotSupportedException, NullPointerException, Exception;
+    void insertar(Alquiler alquiler) throws Exception;
 
-    void devolver(Alquiler alquiler, LocalDate fechaDevolucion)
+    void devolver(Cliente alquiler, LocalDate fechaDevolucion)
             throws NullPointerException, OperationNotSupportedException;
 
     Alquiler buscar(Alquiler alquiler);

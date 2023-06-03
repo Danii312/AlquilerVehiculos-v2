@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <alquileres>
-    <alquiler cliente="11223344B" fechaAlquiler="01/03/2023" fechaDevolucion="07/03/2023" vehiculo="3333DDD"/>
-    <alquiler cliente="11111111H" fechaAlquiler="10/03/2023" fechaDevolucion="14/03/2023" vehiculo="1111BBB"/>
-    <alquiler cliente="11223344B" fechaAlquiler="10/03/2023" fechaDevolucion="16/03/2023" vehiculo="1234BCD"/>
-    <alquiler cliente="11111111H" fechaAlquiler="15/03/2023" vehiculo="2222CCC"/>
+    <alquiler dni="77702051R" matricula="1234BBB">
+        <fechaAlquiler formato="dd/MM/yyyy" tipodato="LocalDate">01/06/2023</fechaAlquiler>
+        <fechaDevolucion formato="dd/MM/yyyy" tipodato="LocalDate">03/06/2023</fechaDevolucion>
+    </alquiler>
 </alquileres>

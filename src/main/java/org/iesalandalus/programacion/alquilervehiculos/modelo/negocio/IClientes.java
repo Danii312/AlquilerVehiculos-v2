@@ -2,7 +2,6 @@ package org.iesalandalus.programacion.alquilervehiculos.modelo.negocio;
 
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 
-import javax.naming.OperationNotSupportedException;
 import java.util.List;
 
 public interface IClientes {
@@ -11,12 +10,12 @@ public interface IClientes {
 
     int getCantidad();
 
-    void insertar(Cliente cliente) throws OperationNotSupportedException, Exception;
+    void insertar(Cliente cliente) throws Exception;
 
     Cliente buscar(Cliente cliente);
 
-    void borrar(Cliente cliente) throws OperationNotSupportedException, Exception;
+    void borrar(Cliente cliente) throws Exception;
 
-    void modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException, Exception;
+    void modificar(Cliente cliente, String nombre, String telefono) throws Exception;
 
 }

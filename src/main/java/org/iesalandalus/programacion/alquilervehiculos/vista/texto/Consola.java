@@ -291,4 +291,17 @@ public class Consola {
         return LocalDate.parse(fecha, FORMATO_FECHA);
     }
 
+    static Integer leerMes(String mensaje) {
+        System.out.println(mensaje);
+        Integer mes = null;
+        while (mes == null || (mes < 0 || mes > 12)) {
+            try {
+                mes = Entrada.entero();
+            } catch (Exception e) {
+                System.out.print(e.getMessage());
+            }
+        }
+        return mes;
+    }
+
 }

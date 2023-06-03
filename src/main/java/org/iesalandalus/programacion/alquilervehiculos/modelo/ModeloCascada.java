@@ -12,9 +12,8 @@ import java.util.List;
 
 public class ModeloCascada extends Modelo {
 
-    public ModeloCascada(IFuenteDatos fuenteDatos) {
-        super();
-        setFuenteDatos(fuenteDatos);
+    public ModeloCascada(FactoriaFuenteDatos factoriaFuenteDatos){
+        super(factoriaFuenteDatos);
         comenzar();
     }
 
@@ -55,11 +54,12 @@ public class ModeloCascada extends Modelo {
         clientes.modificar(cliente, nombre, telefono);
     }
 
-    public void devolver(Alquiler alquiler, LocalDate fechaDevolucion) throws NullPointerException, OperationNotSupportedException {
-        if (alquileres.buscar(alquiler) == null) {
-            throw new OperationNotSupportedException("ERROR: No existe el alquiler a devolver.");
-        }
-        alquileres.devolver(alquiler, fechaDevolucion);
+    public void devolver(Cliente cliente, LocalDate fechaDevolucion) throws NullPointerException, OperationNotSupportedException {
+        alquileres.devolver(cliente, fechaDevolucion);
+    }
+
+    public void devolver(Vehiculo vehiculo, LocalDate fechaDevolucion) throws NullPointerException, OperationNotSupportedException {
+        alquileres.devolver(vehiculo, fechaDevolucion);
     }
 
     public void borrar(Cliente cliente) throws Exception {

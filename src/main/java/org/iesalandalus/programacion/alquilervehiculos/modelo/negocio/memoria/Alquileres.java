@@ -96,21 +96,56 @@ public class Alquileres implements IAlquileres {
         return estadoAlquiler;
     }
 
-    // MÉTODO devolver
-    public void devolver(Alquiler alquiler, LocalDate fechaDevolucion) throws OperationNotSupportedException {
-        boolean estadoAlquiler = false;
-        if (alquiler == null || fechaDevolucion == null) {
+    // MÉTODOS devolver
+    public void devolver(Cliente cliente, LocalDate fechaDevolucion) throws NullPointerException, OperationNotSupportedException {
+        if (cliente == null || fechaDevolucion == null) {
             throw new NullPointerException("ERROR: No se puede devolver un alquiler nulo.");
         }
-        for (Alquiler alquiler2 : coleccionAlquileres) {
-            if (alquiler2.equals(alquiler)) {
-                alquiler2.devolver(fechaDevolucion);
-            }
-            estadoAlquiler = true;
-        }
-        if (estadoAlquiler == false) {
+        Alquiler alquiler = null;
+        alquiler = getAlquilerAbierto(cliente);
+        if (alquiler == null) {
             throw new OperationNotSupportedException("ERROR: No existe ningún alquiler igual.");
         }
+        alquiler.devolver(fechaDevolucion);
+    }
+
+    public void devolver(Vehiculo vehiculo, LocalDate fechaDevolucion) throws NullPointerException, OperationNotSupportedException {
+        if (vehiculo == null || fechaDevolucion == null) {
+            throw new NullPointerException("ERROR: No se puede devolver un alquiler nulo.");
+        }
+        Alquiler alquiler = null;
+        alquiler = getAlquilerAbierto(vehiculo);
+        if (alquiler == null) {
+            throw new OperationNotSupportedException("ERROR: No existe ningún alquiler igual.");
+        }
+        alquiler.devolver(fechaDevolucion);
+    }
+
+    // MÉTODOS getAlquilerAbierto
+    public Alquiler getAlquilerAbierto(Cliente cliente) {
+        if (cliente == null) {
+            throw new NullPointerException("ERROR: No se puede buscar un alquiler de cliente nulo.");
+        }
+        Alquiler alquiler = null;
+        for (Alquiler encontrarAlquiler : coleccionAlquileres) {
+            if (encontrarAlquiler.getFechaDevolucion() == null && encontrarAlquiler.getCliente().equals(cliente)) {
+                alquiler = encontrarAlquiler;
+            }
+        }
+        return alquiler;
+    }
+
+    public Alquiler getAlquilerAbierto(Vehiculo vehiculo) {
+        if (vehiculo == null) {
+            throw new NullPointerException("ERROR: No se puede buscar un alquiler de cliente nulo.");
+        }
+        Alquiler alquiler = null;
+        for (Alquiler encontrarAlquiler : coleccionAlquileres) {
+            if (encontrarAlquiler.getFechaDevolucion() == null && encontrarAlquiler.getVehiculo().equals(vehiculo)) {
+                alquiler = encontrarAlquiler;
+            }
+        }
+        return alquiler;
     }
 
     // MÉTODO borrar

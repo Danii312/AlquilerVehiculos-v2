@@ -7,7 +7,7 @@ public abstract class Vista {
     protected Controlador controlador;
 
     public Vista() {
-        super();
+
     }
 
     public void setControlador(Controlador controlador) {

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Vehiculos {
 
-    private final String RUTA_FICHERO = "datos/vehiculos.xml";
+    private final String RUTA_FICHERO = "vehiculos.xml";
     private final String RAIZ = "vehiculos";
     private final String VEHICULO = "vehiculo";
     private final String MARCA = "marca";
@@ -41,9 +41,7 @@ public class Vehiculos {
     }
 
     public int getCantidad() {
-        int cantidad = 0;
-        cantidad = coleccionVehiculos.size();
-        return cantidad;
+        return coleccionVehiculos.size();
     }
 
     public void insertar(Vehiculo vehiculo) throws OperationNotSupportedException {

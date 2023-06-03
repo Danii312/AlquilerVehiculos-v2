@@ -94,7 +94,7 @@ public enum Accion {
             vista.listarAlquileresVehiculo();
         }
     },
-    MOSTRAR_ESTADISTICAS_MENSUALES("Mostrar estadisticas mensuales") {
+    MOSTRAR_ESTADISTICAS_MENSUALES("Mostrar estadísticas mensuales") {
         protected void ejecutar() {
             vista.mostrarEstadisticasMensualesTipoVehiculo();
         }

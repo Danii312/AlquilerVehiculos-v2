@@ -25,7 +25,6 @@ public class Consola {
     public static void mostrarCabecera(String mensaje) {
         System.out.println("---------------------------------------");
         System.out.println(mensaje);
-        System.out.println("---------------------------------------");
     }
 
     public static void mostrarMenuAcciones() {

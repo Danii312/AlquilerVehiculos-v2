@@ -21,13 +21,13 @@ import java.util.List;
 
 public class Alquileres {
 
-    private final String RUTA_FICHERO = "datos/alquileres.xml";
+    private final String RUTA_FICHERO = "alquileres.xml";
     private final String FORMATO_FECHA = "dd/MM/yyyy";
     private final String RAIZ = "alquileres";
     private final String DNI_CLIENTE = "dni";
     private final String MATRICULA_VEHICULO = "matricula";
     private final String FECHA_ALQUILER = "fechaAlquiler";
-    private final String FECHA_DEVOLUCION = "fechaDevolucion";
+    private final String FECHA_DEVOLUCION = "fechaDevolución";
     private final String FORMATO = "formato";
     private final String TIPO_DATO = "tipodato";
 

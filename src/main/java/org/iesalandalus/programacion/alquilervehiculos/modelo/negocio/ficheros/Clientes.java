@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Clientes {
 
-    private final String RUTA_FICHERO ="datos/clientes.xml";
+    private final String RUTA_FICHERO ="clientes.xml";
     private final String RAIZ = "clientes";
     private final String CLIENTE = "cliente";
     private final String NOMBRE ="nombre";
@@ -35,12 +35,7 @@ public class Clientes {
     }
 
     public int getCantidad() {
-        try {
             return coleccionClientes.size();
-        } catch (Exception e) {
-            int cantidad = 0;
-            return cantidad;
-        }
     }
 
     public void insertar(Cliente cliente) throws OperationNotSupportedException {

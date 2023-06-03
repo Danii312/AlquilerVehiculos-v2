@@ -38,11 +38,11 @@ public abstract class Modelo {
         System.out.println("El modelo ha terminado.");
     }
 
-    public abstract void insertar(Cliente cliente) throws OperationNotSupportedException, Exception;
+    public abstract void insertar(Cliente cliente) throws Exception;
 
     public abstract void insertar(Vehiculo turismo) throws OperationNotSupportedException;
 
-    public abstract void insertar(Alquiler alquiler) throws OperationNotSupportedException, Exception;
+    public abstract void insertar(Alquiler alquiler) throws Exception;
 
     public abstract Cliente buscar(Cliente cliente);
 
@@ -51,9 +51,9 @@ public abstract class Modelo {
     public abstract Alquiler buscar(Alquiler alquiler);
 
     public abstract void modificar(Cliente cliente, String nombre, String telefono)
-            throws OperationNotSupportedException, Exception;
+            throws Exception;
 
-    public abstract void borrar(Cliente cliente) throws OperationNotSupportedException, Exception;
+    public abstract void borrar(Cliente cliente) throws Exception;
 
     public abstract void borrar(Vehiculo vehiculo) throws OperationNotSupportedException;
 

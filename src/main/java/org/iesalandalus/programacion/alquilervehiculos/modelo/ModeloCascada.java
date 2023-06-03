@@ -3,7 +3,6 @@ package org.iesalandalus.programacion.alquilervehiculos.modelo;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IFuenteDatos;
 
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDate;
